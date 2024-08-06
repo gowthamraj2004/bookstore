@@ -1,0 +1,270 @@
+/* General background for the entire page or container */
+body {
+    background-color: #fdfdfd; /* Background color */
+    font-family: Arial, sans-serif; /* Font */
+}
+
+/* Book card styling */
+.book-card {
+    max-width: 1200px;
+    margin: 90px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the book card */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* Container for image and info */
+.image-info-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* Image container styling */
+.image-container {
+    flex: 1;
+    position: relative;
+}
+
+/* Book name styling */
+.book-name {
+    font-size: 36px; /* Larger font size for the book name */
+    font-weight: bold;
+    text-align: center; /* Center align the book name */
+    margin-bottom: 10px; /* Space below the book name */
+}
+
+/* Book image styling */
+.book-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Dot navigation for images */
+.dot-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+/* Book info styling */
+.book-info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    padding-left: 20px; /* Add some padding to align with the image */
+}
+
+.book-info-main {
+    margin-bottom: 20px; /* Space below the main info */
+}
+
+.book-info-main p {
+    margin: 15px 0; /* Margin between info items */
+    font-size: 18px; /* Font size for the book info */
+    line-height: 1.5; /* Improve readability */
+}
+
+.book-info-extra {
+    margin-bottom: 20px; /* Space below the extra info */
+}
+
+.book-info-extra h3 {
+    font-size: 24px; /* Font size for description heading */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+.book-info-extra p {
+    font-size: 18px; /* Font size for description text */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* Button container styling */
+.button-container {
+    margin-top: 20px;
+    display: flex; /* Use flexbox to align buttons horizontally */
+    gap: 10px; /* Space between buttons */
+    position: relative; /* Ensure the dropdown is positioned relative to this container */
+}
+
+/* Style for buttons */
+.buy-now,
+.buy-for-rent,
+.add-to-cart {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Specific button styles */
+.buy-now {
+    background-color: #bd3599; /* Color for Buy Now button */
+}
+
+.buy-now:hover {
+    background-color: #ff99cc; /* Light pink color on hover */
+}
+
+.add-to-cart {
+    background-color: #000000; /* Color for Add to Cart button */
+}
+
+.add-to-cart:hover {
+    background-color: #4d4d4d; /* Lighten the black color on hover */
+}
+
+.buy-for-rent {
+    background-color: #bd3599; /* Same color as Buy Now button */
+}
+
+.buy-for-rent:hover {
+    background-color: #ff99cc; /* Light pink color on hover */
+}
+
+/* Order of buttons */
+.button-container {
+    flex-direction: row; /* Ensure buttons are in a row */
+}
+
+.add-to-cart {
+    order: 1; /* Position Add to Cart button */
+}
+
+.buy-for-rent {
+    order: 2; /* Position Buy for Rent button after Add to Cart */
+}
+
+.buy-now {
+    order: 0; /* Position Buy Now button first */
+}
+
+/* Dropdown styling */
+.rent-dropdown {
+    position: absolute;
+    top: 100%; /* Position the dropdown directly below the button */
+    left: 0; /* Align with the left edge of the button container */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    z-index: 10;
+}
+
+.rent-dropdown h3 {
+    margin-top: 0;
+}
+
+.rent-time-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.rent-time-input input[type="number"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.rent-time-input select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.rent-confirm,
+.rent-cancel {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.rent-confirm {
+    background-color: #0ec7ff; /* Green color for Confirm button */
+}
+
+.rent-cancel {
+    background-color: #b6e851; /* Red color for Cancel button */
+}
+
+/* Review section styling */
+.review-section {
+    margin-top: 30px;
+}
+
+.review-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.submit-review {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #19e9d4; /* Color for Submit Review button */
+    cursor: pointer;
+}
+
+/* Reviews list styling */
+.reviews-list {
+    margin-top: 20px;
+}
+
+.reviews-list h3 {
+    font-size: 24px; /* Font size for reviews heading */
+    margin-bottom: 10px;
+}
+
+.review-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.review-item h4 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.review-item h4 span {
+    font-size: 16px;
+    color: #f39600; /* Gold color for rating stars */
+}
+
+.review-item p {
+    font-size: 16px;
+    line-height: 1.5;
+}

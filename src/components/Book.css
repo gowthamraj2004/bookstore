@@ -1,0 +1,74 @@
+.book-container {
+  perspective: 1000px;
+  margin: 10px;
+}
+
+.book {
+  width: 220px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.book-container:hover .book {
+  transform: rotateY(180deg);
+ }
+
+.book-front, .book-back {
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 5px solid #333; /* Border around the cards */
+  border-radius: 10px; /* Rounded corners */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+} 
+
+.book-front {
+  background: #c3c3c379; /* Light color for the front */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #333;
+}
+
+.book-thumbnail {
+  width: 150px; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+  object-fit: cover;
+  border-bottom: 2px solid #ddd; /* Border under the image */
+  /* margin-bottom: 10px; */
+}
+
+.book-front h2 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.book-back {
+  background: #d39696; /* Light gray background for the back */
+  color: #000;
+  transform: rotateY(180deg);
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.book-back h2 {
+  /* margin-bottom: 10px; */
+  font-size: 1.2em;
+}
+
+.book-back p {
+  margin: 5px 0;
+}

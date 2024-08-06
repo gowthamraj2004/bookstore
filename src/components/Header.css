@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.header {
+  transition: transform 0.3s ease;
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  white-space: nowrap; 
+  font-family: 'Roboto', sans-serif; /* Changed font */
+}
+
+.header.hide {
+  transform: translateY(-100%);
+}
+
+.header h1 {
+  color: #ccc;
+  margin-right: auto;
+  padding-left: 80px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  font-family: 'Pacifico', cursive; /* Apply the new font */
+}
+
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  position: relative; /* Needed for proper positioning of dropdown */
+  border-radius: 50px;
+}
+
+.menu {
+  display: none; /* Hide menu by default */
+  position: absolute;
+  top: 80px; /* Adjust based on your header height */
+  left: 0; /* Align menu to the left side of the header */
+  background-color: #282c34;
+  border-radius: 5px;
+  box-shadow: 0px 6px 8px rgb(0, 0, 0);
+  z-index: 1001;
+  width: 200px; /* Adjust width as needed */
+}
+
+.menu.active {
+  display: block; /* Show menu when active */
+}
+
+.menu-item {
+  padding: 10px;
+  text-align: center;
+  height: auto;
+  line-height: 20px;
+}
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-item a:hover {
+  background-color: #3bb19b;
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: -5px;
+}
+menu-icon:hover + .menu, /* Show menu when the menu icon is hovered */
+.menu:hover { /* Keep menu shown when hovering over the menu itself */
+  display: block;
+}
+
+.logo{
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  margin: 0px 0px 0px 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add some space between the input and button */
+  position: absolute; /* Position absolutely within header */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Offset by half of its own width to center */
+  width: 100%; /* Ensure container takes up full width */
+  max-width: 500px; /* Set a maximum width for better layout */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+.search-container input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%; /* Make input fill the container width */
+}
+
+.search-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3bb19b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  margin: 0 20px;
+  font-size: 2rem; /* Increase the size of the cart icon */
+  cursor: pointer;
+  position: relative; /* Needed for positioning the counter */
+}
+
+.cart-icon:hover {
+  color: #ff4d4f;
+}
+
+.cart-counter {
+  position: absolute;
+  top: -10px; /* Adjust as needed */
+  right: -10px; /* Adjust as needed */
+  background-color: #ff4d4f;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px; /* Adjust padding to make the counter smaller */
+  font-size: 0.7rem; /* Smaller font size */
+  font-weight: bold;
+}
+
+.account-icon button {
+  background: none;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.account-icon button:hover {
+  color: #3bb19b;
+}
+
+/* SuperCoins styles */
+.supercoins {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.supercoins img {
+  width: 35px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.supercoins span {
+  font-size: 20px;
+  color: #fff;
+}

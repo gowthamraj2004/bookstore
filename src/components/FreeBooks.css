@@ -1,0 +1,54 @@
+/* src/components/FreeBooks.css */
+
+.free-books {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-top: 80px;
+    background-color: #7e788b;
+  }
+  
+  .free-books h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Pacifico', cursive;
+    color: #333;
+  }
+  
+  .books-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .book-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .book-item h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-family: 'Pacifico', cursive;
+    color: #333;
+  }
+  
+  .book-item p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .book-item strong {
+    color: #333;
+  }
+  

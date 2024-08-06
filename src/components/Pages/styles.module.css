@@ -1,0 +1,117 @@
+/* Signup styles */
+.signup_container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url('https://i.pinimg.com/564x/f8/1f/97/f81f9793f48b069e8b67f13c3bd3af4f.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+  }
+  
+  .signup_form_container {
+	width: 900px;
+	height: 500px;
+	display: flex;
+	border-radius: 10px;
+	box-shadow: 0px 3px 3px -2px rgb(0, 0, 0 / 20%), 0px 3px 4px 0px rgb(0, 0, 0 / 14%), 0px 1px 8px 0px rgb(0, 0, 0 / 12%);
+	backdrop-filter: blur(2px);
+	background: rgba(255, 255, 255, 0.3); /* Adjusted for better visibility */
+	transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth form transition */
+	position: relative;
+  }
+  
+  .left, .right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth transition for left and right sides */
+  }
+  
+  .left {
+	flex: 1;
+	background-color: #FA9884;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+  }
+  
+  .right {
+	flex: 2;
+  }
+  
+  .form_container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  }
+  
+  .input {
+	outline: none;
+	border: none;
+	width: 370px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: #edf5f3;
+	margin: 5px 0;
+	font-size: 14px;
+  }
+  
+  .error_msg {
+	width: 370px;
+	padding: 15px;
+	margin: 5px 0;
+	font-size: 14px;
+	background-color: #f34646;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+  }
+  
+  .white_btn, .green_btn {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	border-radius: 20px;
+	width: 180px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+  }
+  
+  .green_btn {
+	margin: 10px;
+  }
+  
+  /* Animation keyframes */
+  @keyframes slideInFromRight {
+	from {
+	  transform: translateX(100%);
+	  opacity: 0;
+	}
+	to {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+  }
+  
+  @keyframes slideOutToLeft {
+	from {
+	  transform: translateX(0);
+	  opacity: 1;
+	}
+	to {
+	  transform: translateX(-100%);
+	  opacity: 0;
+	}
+  }
+  
+  .slideIn {
+	animation: slideInFromRight 1s ease-in-out;
+  }
+  
+  .slideOut {
+	animation: slideOutToLeft 1s ease-in-out;
+  }
+  

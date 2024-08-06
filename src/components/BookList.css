@@ -1,0 +1,85 @@
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6rem; /* Adjust as needed for spacing */
+  padding: 10px;
+  margin: 100px 70px 80px 80px;
+}
+
+.book-list .book {
+  flex: 1 1 calc(25% - 20px); /* Adjust this percentage for the number of columns */
+  box-sizing: border-box;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center align the items vertically */
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.pagination button:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination .pagination-button {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.pagination .pagination-button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .book-list .book {
+    flex: 1 1 calc(33.333% - 20px); /* 3 columns for large tablets and small desktops */
+  }
+  .book-list {
+    margin: 100px 50px; /* Adjust margin for medium screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .book-list .book {
+    flex: 1 1 calc(50% - 20px); /* 2 columns for tablets */
+  }
+  .book-list {
+    margin: 80px 30px; /* Adjust margin for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .book-list .book {
+    flex: 1 1 calc(100% - 20px); /* 1 column for mobile phones */
+  }
+  .book-list {
+    margin: 60px 20px; /* Adjust margin for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination button {
+    padding: 8px 10px; /* Smaller padding for very small screens */
+    font-size: 14px; /* Smaller font size */
+  }
+}
