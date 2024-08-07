@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaBars, FaShoppingCart } from 'react-icons/fa';
@@ -8,24 +8,30 @@ import logo from '../assets/images/logo.png';
 
 const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [firstName, setFirstName] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // State for dropdown menu
   const scrollDirection = useScrollDirection();
-  const location = useLocation(); // Use useLocation to get the current path
+  const location = useLocation();
+
+  useEffect(() => {
+    const storedFirstName = localStorage.getItem('firstName');
+    if (storedFirstName) {
+      setFirstName(storedFirstName);
+    }
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(prevState => !prevState);
   };
 
   const navigate = useNavigate();
-  const goLogin = () => {
-    navigate('/login');
-  };
   const goHome = () => {
     navigate('/');
   };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      e.preventDefault(); // Prevent default form submission behavior
+      e.preventDefault();
       onSearch();
     }
   };
@@ -34,7 +40,18 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
     navigate('/cart');
   };
 
-  // Conditionally render different elements based on the current path
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('firstName');
+    setFirstName(null);
+    setDropdownOpen(false); // Close dropdown on logout
+    navigate('/');
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(prevState => !prevState);
+  };
+
   const isCartPage = location.pathname === '/cart';
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
@@ -61,7 +78,7 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
               placeholder="Search books..."
-              onKeyPress={handleKeyPress} // Add onKeyPress handler here
+              onKeyPress={handleKeyPress}
             />
             <button onClick={onSearch}>Search</button>
           </div>
@@ -74,7 +91,20 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
             <span className="supercoins-number">{superCoins}</span>
           </div>
           <div className="account-icon">
-            <button onClick={goLogin}>Login or Signup</button>
+            {firstName ? (
+              <div className="welcome-message">
+                <button onClick={toggleDropdown} className="welcome-btn">
+                  Welcome, {firstName}
+                </button>
+                {dropdownOpen && (
+                  <div className="dropdown-menu">
+                    <button onClick={handleLogout} className="logout-btn">Logout</button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button onClick={() => navigate('/login')}>Login or Signup</button>
+            )}
           </div>
         </>
       )}

@@ -18,15 +18,17 @@ const Login = () => {
     try {
       const url = "http://localhost:8080/api/auth";
       const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res);
-      window.location = "/";
+      console.log(res.firstname);
+      localStorage.setItem("token", res.token); // Store the token
+      localStorage.setItem("firstName", res.firstName); // Store the firstName
+      navigate("/");
     } catch (error) {
       if (
         error.response &&
         error.response.status >= 400 &&
         error.response.status <= 500
       ) {
-        setError(error.response.data);
+        setError(error.response.data.message);
       }
     }
   };
