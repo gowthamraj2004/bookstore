@@ -9,6 +9,7 @@ const Signup = () => {
     lastName: "",
     email: "",
     password: "",
+    phoneNo: ""
   });
   const [error, setError] = useState("");
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -21,16 +22,12 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/users";
-      const { data: res } = await axios.post(url, data);
+      const url = "http://localhost:8080/signup";
+      const response = await axios.post(url, data);
+      alert("User registered successfully");
       navigate("/login");
-      console.log(res.message);
     } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
+      if (error.response && error.response.status >= 400 && error.response.status <= 500) {
         setError(error.response.data.message);
       }
     }
@@ -87,6 +84,15 @@ const Signup = () => {
               name="password"
               onChange={handleChange}
               value={data.password}
+              required
+              className={styles.input}
+            />
+            <input
+              type="text"
+              placeholder="Phone Number"
+              name="phoneNo"
+              onChange={handleChange}
+              value={data.phoneNo}
               required
               className={styles.input}
             />
