@@ -38,7 +38,7 @@ const BookList = ({ books }) => {
               author={book.author}
               description={book.description}
               genre={book.genre}
-              thumbnail={book.thumbnail}
+              thumbnail={`data:image/jpeg;base64,${book.thumbnail}`}
             />
           </Link>
         ))}

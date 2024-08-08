@@ -42,6 +42,7 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    console.log('token');
     localStorage.removeItem('firstName');
     setFirstName(null);
     setDropdownOpen(false); // Close dropdown on logout

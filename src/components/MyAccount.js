@@ -1,7 +1,13 @@
 import React from 'react';
 import './MyAccount.css';
-
+import { useNavigate } from 'react-router-dom';
 const MyAccount = () => {
+    const navigate=useNavigate();
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('firstName'); // Close dropdown on logout
+        navigate('/');
+      };
     return (
         <div className="my-account-container">
             <h1>My Account</h1>
@@ -26,16 +32,10 @@ const MyAccount = () => {
                 <p>456 Elm St, Shelbyville, IL 62565</p>
                 <button>Add New Address</button>
             </div>
-            <div className="payment-methods">
-                <h2>Payment Methods</h2>
-                <p>Visa **** **** **** 1234 - Exp. 12/24</p>
-                <p>Mastercard **** **** **** 5678 - Exp. 11/23</p>
-                <button>Add New Payment Method</button>
-            </div>
             <div className="account-actions">
                 <button>Edit Profile</button>
                 <button>Change Password</button>
-                <button>Logout</button>
+                <button onClick={handleLogout}>Logout</button>
             </div>
         </div>
     );

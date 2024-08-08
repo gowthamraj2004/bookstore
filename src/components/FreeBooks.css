@@ -51,4 +51,14 @@
   .book-item strong {
     color: #333;
   }
-  
+  .book-item h3, .book-item p {
+    text-align: left;
+  }
+  .book-item {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+      

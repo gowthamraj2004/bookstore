@@ -79,8 +79,9 @@ const BookDisplay = ({ books }) => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!book) return <div>Book not found</div>;
+  
+  const bookImages = [`data:image/jpeg;base64,${book.thumbnail}`];
 
-  const bookImages = [book.thumbnail]; // Add more images if available
 
   const handleImageClick = (event) => {
     const imageElement = event.target;
