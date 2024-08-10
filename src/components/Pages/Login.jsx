@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/auth";
+      const url = "http://localhost:8080/api/users/login";
       const { data: res } = await axios.post(url, data);
       // console.log(res.firstname);
       localStorage.setItem("token", res.token); // Store the token
