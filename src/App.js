@@ -15,6 +15,7 @@ import BookDisplay from './components/BookDisplay';
 import './App.css';
 
 import { CartProvider } from './components/CartContext';
+import SellBook from './components/SellBook';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -79,6 +80,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/cart" element={<MyCart />} />
               <Route path="/free-books" element={<FreeBooks />} />
+              <Route path="/sell-books" element={<SellBook />} />
               <Route path="/orders" element={<Order />} />
               <Route path="/order-tracking" element={<OrderTracking />} />
               <Route path="/myaccount" element={<MyAccount />} />

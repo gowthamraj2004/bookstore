@@ -1,0 +1,66 @@
+/* styles.module.css */
+
+.sellbook_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  .form_container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .input, .textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .input[type="file"] {
+    padding: 5px;
+  }
+  
+  .textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .green_btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .green_btn:hover {
+    background-color: #218838;
+  }
+  
+  .error_msg {
+    color: #d9534f;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
