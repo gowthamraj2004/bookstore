@@ -10,9 +10,16 @@ const MyCart = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/cart");
+        const userId = localStorage.getItem("userId");
+        if(!userId){
+          const response = await axios.get("http://localhost:8080/api/cart");
+          setCartItems(response.data);
+        }
+        const response = await axios.get(`http://localhost:8080/api/cart/user/${userId}`);
         setCartItems(response.data);
-      } catch (error) {
+      } 
+      
+      catch (error) {
         setError("Error fetching cart items");
         console.error("Error fetching cart items", error);
       } finally {

@@ -39,6 +39,7 @@ const MyAccount = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('email');
+        localStorage.removeItem('userId');
         localStorage.removeItem('firstName'); // Remove any other stored user data
         navigate('/');
     };

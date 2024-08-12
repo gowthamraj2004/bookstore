@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './BookDisplay.css';
 import { useCart } from './CartContext';
 import axios from 'axios';
 
 const BookDisplay = ({ books }) => {
+  const navigate=useNavigate();
   const { addToCart} = useCart();
   const { id } = useParams();
   const [book, setBook] = useState(null);
@@ -106,6 +107,10 @@ const BookDisplay = ({ books }) => {
   const handleAddToCart = async (book) => {
     try {
       const userId = localStorage.getItem("userId");
+      if(!userId){
+        navigate("/login");
+        return;
+      }
       console.log(userId);
       console.log("Book details",book);
         
@@ -117,6 +122,7 @@ const BookDisplay = ({ books }) => {
 
         await axios.post('http://localhost:8080/api/cart/add', requestBody);
         // Optionally, fetch updated cart items to reflect changes
+        alert("Item added to the cart successfully");
     } catch (error) {
       if (error.response) {
         console.error('Backend error:', error.response.data);

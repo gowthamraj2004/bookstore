@@ -21,10 +21,10 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [superCoins, setSuperCoins] = useState(100);
-  const [cartItems, setCartItems] = useState(3);
+  const [cartItems, setCartItems] = useState(0);
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
-
+ 
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -39,6 +39,25 @@ function App() {
 
     fetchBooks();
   }, []);
+
+  // Fetch cart items count
+  useEffect(() => {
+    const fetchCartItemsCount = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
+        if (userId) {
+          const response = await axios.get(`http://localhost:8080/api/cart/count/${userId}`);
+          setCartItems(response.data.count); // Assuming the API returns a JSON with a `count` property
+        }
+      } catch (error) {
+        console.error('Error fetching cart items count:', error);
+        setError('Failed to load cart items. Please try again later.');
+      }
+    };
+
+    fetchCartItemsCount();
+  }, []); // Empty dependency array means this runs once after mount
+
 
   const handleSearch = () => {
     setSearchTerm(inputValue);
@@ -62,8 +81,8 @@ function App() {
   };
 
   return (
-    <CartProvider>
       <Router>
+    <CartProvider>
         <div className="app-container">
           <Header
             searchTerm={inputValue}
@@ -89,8 +108,8 @@ function App() {
           </main>
           <Footer />
         </div>
-      </Router>
     </CartProvider>
+      </Router>
   );
 }
 

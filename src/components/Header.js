@@ -43,6 +43,7 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
   const handleLogout = () => {
     localStorage.removeItem('email');
     localStorage.removeItem('firstName');
+    localStorage.removeItem('userId')
     setFirstName(null);
     setDropdownOpen(false); // Close dropdown on logout
     navigate('/');
@@ -61,7 +62,6 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
         <FaBars />
       </div>
       <div className={`menu ${menuOpen ? 'active' : ''}`} onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
-        {/* <div className="menu-item"></div> */}
         <div className="menu-item"><Link to="/orders">My Orders</Link></div>
         <div className="menu-item"><Link to="/offers">Offers</Link></div>
         <div className="menu-item"><Link to="/free-books">Free Books</Link></div>
@@ -83,7 +83,7 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
             <button onClick={onSearch}>Search</button>
           </div>
           <div className="cart-icon" onClick={goToCart}>
-            <FaShoppingCart />
+            🛒
             {cartItems > 0 && <div className="cart-counter">{cartItems}</div>}
           </div>
           <div className="supercoins">
