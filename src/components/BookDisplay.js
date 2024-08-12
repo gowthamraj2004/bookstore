@@ -103,11 +103,31 @@ const BookDisplay = ({ books }) => {
     alert('Proceed to Buy Now');
   };
 
-  const handleAddToCart = async () => {
-    addToCart({...book,quantity:1});
-   
-    alert('Added to the cart');
+  const handleAddToCart = async (book) => {
+    try {
+      const userId = localStorage.getItem("userId");
+      console.log(userId);
+      console.log("Book details",book);
+        
+        const requestBody = {
+            bookId: Number(book.id),
+            // quantity: 1, // Default quantity
+            userId: Number(userId) // Send userId to the backend
+        };
+
+        await axios.post('http://localhost:8080/api/cart/add', requestBody);
+        // Optionally, fetch updated cart items to reflect changes
+    } catch (error) {
+      if (error.response) {
+        console.error('Backend error:', error.response.data);
+    } else {
+        console.error('Network error:', error.message);
+    }
+    }
 };
+
+
+
 
   const handleRentDropdownToggle = () => {
     setShowRentDropdown(prevState => !prevState);
@@ -190,7 +210,7 @@ const BookDisplay = ({ books }) => {
           </div>
           <div className="button-container">
             <button className="buy-now" onClick={handleBuyNow}>Buy Now</button>
-            <button className="add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
+            <button className="add-to-cart" onClick={()=>handleAddToCart(book)}>Add to Cart</button>
             <button className="buy-for-rent" onClick={handleRentDropdownToggle}>
               {showRentDropdown ? 'Cancel Rent' : 'Buy for Rent'}
             </button>

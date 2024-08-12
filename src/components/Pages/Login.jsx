@@ -16,22 +16,26 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/users/login";
-      const { data: res } = await axios.post(url, data);
-      // console.log(res.firstname);
-      localStorage.setItem("token", res.token); // Store the token
-      localStorage.setItem("firstName", res.firstName); // Store the firstName
-      navigate("/");
+        const url = "http://localhost:8080/api/users/login";
+        const { data: res } = await axios.post(url, data);
+
+        console.log(res.email);
+        console.log(res.firstName);
+        console.log(res.id);
+
+        localStorage.setItem("userId", res.id); // Store userId separately if needed
+        localStorage.setItem("firstName", res.firstName); // Store firstName
+        localStorage.setItem("email", res.email); // Store email
+
+        navigate("/"); // Redirect to homepage or desired route
     } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
+        if (error.response && error.response.status >= 400 && error.response.status <= 500) {
+            setError(error.response.data.message); // Display error message
+        } else {
+            setError("An unexpected error occurred."); // Handle unexpected errors
+        }
     }
-  };
+};
 
   useEffect(() => {
     setIsTransitioning(false);

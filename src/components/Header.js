@@ -41,8 +41,7 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    console.log('token');
+    localStorage.removeItem('email');
     localStorage.removeItem('firstName');
     setFirstName(null);
     setDropdownOpen(false); // Close dropdown on logout
@@ -62,7 +61,7 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
         <FaBars />
       </div>
       <div className={`menu ${menuOpen ? 'active' : ''}`} onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
-        <div className="menu-item"><Link to="/myaccount">My Account</Link></div>
+        {/* <div className="menu-item"></div> */}
         <div className="menu-item"><Link to="/orders">My Orders</Link></div>
         <div className="menu-item"><Link to="/offers">Offers</Link></div>
         <div className="menu-item"><Link to="/free-books">Free Books</Link></div>
@@ -99,6 +98,7 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
                 </button>
                 {dropdownOpen && (
                   <div className="dropdown-menu">
+                    <Link to="/myaccount"><button className="logout-btn">My Account</button></Link>
                     <button onClick={handleLogout} className="logout-btn">Logout</button>
                   </div>
                 )}
