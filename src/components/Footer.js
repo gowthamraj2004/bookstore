@@ -1,8 +1,16 @@
 import React from 'react';
 import './Footer.css'; // Assuming you will have some styles
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const location = useLocation();
+  
+  // Check if the current path is either login or signup
+  if (location.pathname === '/login' || location.pathname === '/signup') {
+    return null; // Do not render the footer
+  }
+
   return (
     <footer className="footer">
       <div className="footer-container">

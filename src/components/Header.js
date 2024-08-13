@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { FaBars, FaShoppingCart } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import supercoinsIcon from '../assets/images/coin-removebg-preview.png';
 import useScrollDirection from '../hooks/useScrollDirection';
 import logo from '../assets/images/logo.png';
@@ -37,7 +37,13 @@ const Header = ({ searchTerm, onSearchChange, onSearch, superCoins, cartItems })
   };
 
   const goToCart = () => {
-    navigate('/cart');
+    const userId=localStorage.getItem('userId');
+    if(!userId){
+      navigate('/login');
+    }
+    else{
+      navigate('/cart');
+    }
   };
 
   const handleLogout = () => {

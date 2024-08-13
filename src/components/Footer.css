@@ -1,7 +1,7 @@
 .footer {
   background-color: #241e1e; /* Adjust as needed */
   color: #bbb;
-  padding: 2rem 0;
+  padding: 1rem 0; /* Reduced padding */
   text-align: left;
   width: 100%;
   border-top: 1px solid #ddd; /* Optional border for separation */
@@ -13,18 +13,19 @@
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 0.5rem; /* Reduced padding */
 }
 
 .footer-section {
-  margin: 1rem;
+  margin: 0.5rem; /* Reduced margin */
   flex: 1;
-  min-width: 200px;
+  min-width: 150px; /* Reduced min-width */
 }
 
 .footer-section h2 {
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem; /* Reduced margin */
+  font-size: 1.2rem; /* Adjusted font size */
 }
 
 .footer-section ul {
@@ -33,7 +34,7 @@
 }
 
 .footer-section ul li {
-  margin: 0.5rem 0;
+  margin: 0.25rem 0; /* Reduced margin */
 }
 
 .footer-section ul li a {
@@ -49,12 +50,12 @@
 .social-links {
   display: flex;
   justify-content: space-around;
-  margin-top: 1rem;
+  margin-top: 0.5rem; /* Reduced margin */
 }
 
 .footer-icon {
   color: #bbb;
-  font-size: 24px;
+  font-size: 20px; /* Reduced font size */
   transition: color 0.3s;
 }
 
@@ -64,7 +65,8 @@
 
 .footer-bottom {
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0; /* Reduced padding */
   border-top: 1px solid #333;
   color: #bbb;
+  font-size: 0.8rem; /* Reduced font size */
 }
